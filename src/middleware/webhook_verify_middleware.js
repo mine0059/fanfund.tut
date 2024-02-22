@@ -13,7 +13,7 @@ const crypto = require('crypto');
 require('dotenv').config();
 
 
-module.exports = (req, res, next) => {
+const webhookVerification = (req, res, next) => {
 
     const sign = req.body;
 
@@ -32,8 +32,10 @@ module.exports = (req, res, next) => {
     .digest('hex');
 
     if (hash !== sign) {
-        return res.status(400).send('Invalid sign');
+        return res.status(400).send('Invalid sign!');
     }
 
     next();
 }
+
+module.exports = webhookVerification;

@@ -34,10 +34,11 @@ const checkout = async (req, res) => {
 
 const callback = async  (req, res) => {
     try {
-        
-    } catch (error) {
 
         console.log(req.body);
+
+        
+    } catch (error) {
 
         console.log(error);
         throw error
