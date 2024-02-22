@@ -15,7 +15,7 @@ require('dotenv').config();
 
 const webhookVerification = (req, res, next) => {
 
-    const sign = req.body;
+    const { sign } = req.body;
 
     if (!sign) {
         return res.status(400).send('Invalid payload');
