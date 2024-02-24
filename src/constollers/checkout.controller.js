@@ -61,4 +61,7 @@ const callback = async  (req, res) => {
     }
 }
 
-module.exports = { checkout, callback }
+module.exports = { 
+    checkout, 
+    callback 
+}

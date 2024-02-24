@@ -199,25 +199,35 @@
 
                         <h2 class="title-medium">Recent Supporters</h2>
 
-                        <ul class="history-list">
+                        <% if (locals.supporterList.length) { %>
 
-                            <li class="history-card">
+                            <ul class="history-list">
 
-                                <div class="card-header">
-                                    <div class="card-avater label-large">JD</div>
-
-                                    <h3 class="title-small card-title">
-                                        John Doe Contributed with <span class="primary-text">$100</span>
-                                    </h3>
-                                </div>
-
-                                <P class="card-body body-large on-surface-variant-text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, minima.
-                                </P>
-
-                            </li>
-
-                        </ul>
+                                <% locals.supporterList.forEach(({ name, amount, message }) => { %>
+                                    <li class="history-card">
+    
+                                        <div class="card-header">
+                                            <div class="card-avater label-large"><%= locals.getAvatar(name) %></div>
+        
+                                            <h3 class="title-small card-title">
+                                                <%= name %> Contributed with <span class="primary-text">$<%= amount %></span>
+                                            </h3>
+                                        </div>
+        
+                                        <% if (message) { %>
+                                            <P class="card-body body-large on-surface-variant-text">
+                                                <%= message %>
+                                            </P>
+                                        <% } %>
+        
+                                    </li>
+                                <% }); %>
+    
+                            </ul>
+                         
+                        <% } else {  %>
+                            <p class="body-medium on-surface-variant-text">No supporters yet.</p>
+                        <% } %>
 
                     </section>
 
