@@ -9,7 +9,7 @@ const getAvatar = function (name) {
     const [firstName, lastName] = name.split(' ');
 
     if (lastName) {
-        return firstName.at(0) + lastName;
+        return firstName.at(0) + lastName.at(0);
     } else {
         return firstName.slice(0, 2);
     }
